@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Zoom } from 'react-reveal';
 import ParticlesBg from 'particles-bg'
+import { Button } from '@mui/material';
 
 function SignIn(props) {
 
@@ -10,38 +11,39 @@ function SignIn(props) {
         radius: [50, 100],
         rps: 1,
         color: '#6f98ec',
-        position: {x:1,y:1,width:1000,height:1000},
+        position: { x: 1, y: 1, width: 1000, height: 1000 },
         // f: [.002, .001],
         g: 0.1,
     }
 
     return (
-            <Wrap bg={props.bg} className="full-screen-container">
-                <Container className="login-container">
-                    <h3 className="login-title">Welcome</h3>
-                    <form>
-                        <div className="input-group">
-                            <label>Email</label>
-                            <input type="email"/>
-                        </div>
-                        <div className="input-group">
-                            <label>Password</label>
-                            <input type="password"/>
-                        </div>
-                        <button type="submit" className="login-btn">Sign In</button>
-                    </form>
-                    
-                </Container>
-                <Curve className='wave'>
-                    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <Wrap bg={props.bg} className="full-screen-container">
+            {/* <Button>SignIn With Google</Button> */}
+            <Container className="login-container">
+                <h3 className="login-title">Welcome</h3>
+                <form>
+                    <div className="input-group">
+                        <label>Email</label>
+                        <input type="email" />
+                    </div>
+                    <div className="input-group">
+                        <label>Password</label>
+                        <input type="password" />
+                    </div>
+                    <button type="submit" className="login-btn">Sign In</button>
+                </form>
+
+            </Container>
+            <Curve className='wave'>
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path
                         d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
                         class="shape-fill"
                     ></path>
-            </svg>
-      </Curve>
-                <ParticlesBg type = 'custom' bg = {{position: "absolute"}} config = {config}/>
-            </Wrap>
+                </svg>
+            </Curve>
+            <ParticlesBg type='custom' bg={{ position: "absolute" }} config={config} />
+        </Wrap>
     )
 }
 

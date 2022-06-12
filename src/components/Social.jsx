@@ -11,13 +11,13 @@ function Social() {
 
   return (
     <Container>
-      <Fade left>
+      {/* <Fade left> */}
           <GitHub className='icon' onClick={() => window.open('https://github.com/vasucp1207')}></GitHub>
           <Twitter className='icon'></Twitter>
           <Instagram className='icon'></Instagram>
           <PlayArrow className='icon'></PlayArrow>
           <LinkedIn className='icon'></LinkedIn>
-        </Fade>
+        {/* </Fade> */}
     </Container>
   )
 }
@@ -42,19 +42,19 @@ const Container = styled.div`
     display: block;
     width: 1px;
     height: 100px;
-    margin: 0 11px;
-    background-color: #8e8d8a;
+    margin: 0 15px;
+    background-color: var(--coral);
     }
     margin-top: calc(100vh - 380px);
 
     .icon{
       height: 33px;
       width: 33px;
-      color: #8e8d8a;
+      color: var(--coral);
     }
     .icon:hover{
         transform: translateY(-8px);
         transition: 0.5s;
-        color: #e85a4f;
+        color: gray;
     }
 `

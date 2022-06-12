@@ -14,9 +14,9 @@ function Home() {
     <Wrap>
       <Header />
       <Container>
-        <Left>
+        {/* <Left>
           <Social />
-        </Left>
+        </Left> */}
         <Right>
           <Hero />
           <AboutMe bgImg='../assets/geomt.jpg' anime='anime.png' />
@@ -103,7 +103,7 @@ const Left = styled.div`
 `
 
 const Right = styled.div`
-  flex: 0.93;
+  
 `
 
 const Bg = styled.div`
@@ -140,6 +140,10 @@ const Pp = styled.div`
   flex-direction: column;
   gap: 30px;
   justify-content: center;
+  .projects{
+    color: lightcyan;
+    margin-left: 80px;
+  }
   .wave {
         position: absolute;
         top: 0;

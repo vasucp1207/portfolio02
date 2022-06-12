@@ -16,25 +16,34 @@ function Header() {
   }
 
   return (
-    <Fade right>
+    // <Fade right> cause bug on refreshing
       <Container>
 
         <Avatar className='avatar'>V</Avatar>
         <Wrap>
-          {list.map((items) => (<a href='#'><li>{items}</li></a>))}
+          {/* {list.map((items) => (<a href='#'><li>{items}</li></a>))} */}
+          <a href='#'><li>Home</li></a>
+          <a href='#'><li>AboutMe</li></a>
+          <a href='#'><li>Projects</li></a>
+          <a href='#'><li>Blogs</li></a>
           <Link to="/signin"><a href='#'><li>SignIn</li></a></Link>
         </Wrap>
         <CustomNav>
           <MenuIcon className='menu' onClick={handleClicked}></MenuIcon>
           <Navbar show={navShow}>
             <ClearIcon className='clear' onClick={handleClicked}></ClearIcon>
-            {list.map((items) => (<a href='#'><li>{items}</li></a>))}
+            {/* {list.map((items) => (<a href='#'><li>{items}</li></a>))} */}
+            <a href='#'><li>Home</li></a>
+            <a href='#'><li>AboutMe</li></a>
+            <a href='#'><li>Projects</li></a>
+            <a href='#'><li>Blogs</li></a>
+            <Link to="/signin"><a href='#'><li>SignIn</li></a></Link>
           </Navbar>
         </CustomNav>
         {/* {!navShow && <MenuIcon className='menu' onClick = {handleClicked}></MenuIcon>} */}
 
       </Container>
-    </Fade>
+    // </Fade>
   )
 }
 
@@ -52,11 +61,20 @@ const Container = styled.div`
     width: 50px;
     height: 50px;
   }
+  a{
+    text-decoration: none;
+    padding: 0;
+  }
+  li{
+    list-style: none;
+    font-size: 18px;
+    text-decoration: none;
+  }
 `
 
 const Wrap = styled.div`
   display: flex;
-  font-size: 22px;
+  font-size: 20px;
   gap: 40px;
   li{
     list-style: none;
@@ -66,9 +84,6 @@ const Wrap = styled.div`
       border: 1px solid white;
       border-radius: 3px;
   } */
-  a{
-    text-decoration: none;
-  }
 
   @media(max-width: 550px) {
    display: none;
@@ -95,18 +110,20 @@ const Navbar = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  background-color: white;
+  background: white;
   position: fixed;
-  width: 140px;
+  width: 170px;
   padding: 10px;
   top: 0;
   bottom: 0;
   right: 0;
+  background: var(--coral);
   li{
     list-style: none;
-    color: #e85a4f;
+    color: white;
   }
   a{
     text-decoration: none;
+    border-bottom: 1px solid white;
   }
 `

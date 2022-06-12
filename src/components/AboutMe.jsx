@@ -35,6 +35,7 @@ function AboutMe(props) {
 export default AboutMe
 
 const Container = styled.div`
+    padding: 40px;
     position: relative;
     display: flex;
     justify-content: space-between;

@@ -79,13 +79,13 @@ const Wrap = styled.div`
   .title-right{
     display: flex;
     justify-content: end;
-    color: white;
+    color: lightcyan;
   }
   .title{
-    color: white;
+    color: lightcyan;
   }
   .des{
-    background: ghostwhite;
+    background: var(--gray);
   }
   .typography{
     font-size: 16px;
