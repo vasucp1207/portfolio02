@@ -65,7 +65,7 @@ const Container = styled.div`
       }
 
       .wave .shape-fill {
-        fill: rgb(40, 40, 117);
+        fill: rgb(4, 88, 171);
       }
 `
 

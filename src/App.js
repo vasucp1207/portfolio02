@@ -1,8 +1,13 @@
 import './App.css';
+
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+
 import styled from 'styled-components'
 import SignIn from './components/SignIn'
 import Home from './components/Home';
 import { Routes, Route, Link } from 'react-router-dom';
+import New7 from './components/New7'
 
 import firebase from 'firebase/compat/app'; 
 import 'firebase/compat/firestore';

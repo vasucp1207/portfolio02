@@ -1,5 +1,6 @@
 :root{
   --coral: #e85a4f;
+  --coral: #15f87b;
   --coral-light: #f1aaa4;
   --coral-light: #efcdca;
   --light-gray: #aaa5ab;
@@ -16,6 +17,9 @@ body {
     /* background: rgb(240, 129, 121); */
     /* background-image: linear-gradient(to right,rgb(245, 134, 143), rgb(216, 176, 239)); */
     background: rgb(40, 40, 117);
+    background: #202023;
+    background-image: linear-gradient(rgb(4, 88, 171), rgb(7, 124, 89));
+    background: rgb(4, 88, 171);
     /* background: firebrick; */
     /* background-image: linear-gradient(to right, rgb(67, 166, 215), rgb(249, 132, 237)); */
     /* background: #eae1dc; */

@@ -22,7 +22,10 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@react-three/drei": "7.27.1",
+    "@react-three/fiber": "7.0.21",
+    "three": "0.135.0"
   },
   "scripts": {
     "start": "react-scripts start",

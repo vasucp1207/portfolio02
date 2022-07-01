@@ -5,6 +5,10 @@ import ai from '../assets/ai.png'
 import { Zoom } from 'react-reveal';
 import ParticlesBg from 'particles-bg'
 import Social from './Social';
+import New7 from './New7'
+
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 
 function Hero() {
 
@@ -24,7 +28,7 @@ function Hero() {
         <Social />
       </Left>
       <Right>
-        <ParticlesBg type="custom" num={3} bg={true} config={config} />
+        {/* <ParticlesBg type="custom" num={3} bg={true} config={config} /> */}
         {/* <Zoom> */}
         <Container className='about'>
           <Info>
@@ -45,11 +49,19 @@ function Hero() {
 
         </Container>
         
-        <Ai>
-          <img src={ai} />
-        </Ai>
-        {/* </Zoom> */}
         </Right>
+        {/* <Ai>
+          <img src={ai} />
+        </Ai> */}
+        {/* <div className='voxel'> */}
+          <Canvas camera={{ position: [6, 6, 6] }} clasName="canvas">
+            <OrbitControls />
+            <ambientLight intensity={1} />
+            <directionalLight position={[19, 15, 16]} />
+              <New7 />
+          </Canvas>
+        {/* </div> */}
+        {/* </Zoom> */}
     </Wrap>
   )
 }
@@ -59,6 +71,10 @@ export default Hero
 const Wrap = styled.div`
   height: 100vh;
   display: flex;
+  gap: 800px;
+
+  .canvas{
+  }
 `
 
 const Container = styled.div`
@@ -66,13 +82,13 @@ const Container = styled.div`
 
   .btn{
     height: 50px;
-    color: #e85a4f;
-    border: 1px solid #e85a4f;
+    color: var(--coral);
+    border: 1px solid var(--coral);
     margin-top: 60px;
     font-size: 17px;
     :hover{
-      border: 1px solid #e85a4f;
-      background: lightcoral;
+      border: 1px solid var(--coral);
+      background: var(--coral);
       color: white;
       border-radius: 15px;
       transition: 0.5s;
@@ -84,7 +100,7 @@ const Info = styled.div`
   display: flex;
   flex-direction: column;
   .head--main{
-    color: #e85a4f;
+    color: var(--coral);
   }
   .head--main{
     font-size: 20px;
@@ -129,6 +145,9 @@ const Left = styled.div`
 `
 
 const Right = styled.div`
+  /* z-index: -1; */
+  position: absolute;
   display: flex;
+  margin-left: 100px;
   flex: 0.93;
 `

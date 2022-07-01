@@ -64,11 +64,11 @@ const Container = styled.div`
   a{
     text-decoration: none;
     padding: 0;
-  }
-  li{
-    list-style: none;
-    font-size: 18px;
-    text-decoration: none;
+    &:hover{
+      border-bottom: 2px solid var(--coral);
+      transform: translateY(5px);
+      transition: 0.3s;
+    }
   }
 `
 
@@ -78,7 +78,8 @@ const Wrap = styled.div`
   gap: 40px;
   li{
     list-style: none;
-    color: #e85a4f;
+    color: var(--coral);
+    }
   }
   /* li:hover{
       border: 1px solid white;
@@ -97,6 +98,7 @@ const CustomNav = styled.div`
 `
 
 const Navbar = styled.div`
+  z-index: 1;
   @media(min-width: 550px) {
    display: none;
   }
