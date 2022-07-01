@@ -43,7 +43,8 @@ function Home() {
           <Pp>
           
           <h1 className='projects'>Projects</h1>
-
+          
+          <div className='grid'>
           <Projects
             type='true'
             title='Covid-19 Dashboard'
@@ -64,6 +65,7 @@ function Home() {
             description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla officia asperiores dicta qui quaerat amet culpa placeat, accusamus consequatur nesciunt repudiandae error consectetur earum'
             image='disney.png'
           />
+          </div>
           <Curve className='wave'>
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
               <path
@@ -90,6 +92,11 @@ const Wrap = styled.div`
     font-weight: 500;
     padding: 70px;
     margin-top: 110px;
+  }
+  .grid{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto;
   }
 `
 
@@ -138,7 +145,7 @@ const Pp = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  /* gap: 30px; */
   justify-content: center;
   .projects{
     color: lightcyan;

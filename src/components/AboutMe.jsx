@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Zoom } from 'react-reveal';
+import New3 from './New3'
 
 function AboutMe(props) {
 

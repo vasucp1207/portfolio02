@@ -80,7 +80,6 @@ const Wrap = styled.div`
     list-style: none;
     color: var(--coral);
     }
-  }
   /* li:hover{
       border: 1px solid white;
       border-radius: 3px;
@@ -111,21 +110,25 @@ const Navbar = styled.div`
   transition: 0.5s;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 25px;
   background: white;
   position: fixed;
-  width: 170px;
+  width: 200px;
   padding: 10px;
   top: 0;
   bottom: 0;
   right: 0;
-  background: var(--coral);
+  background: white;
+  font-size: 20px;
   li{
     list-style: none;
-    color: white;
+    color: black;
+    &:hover{
+      color: var(--coral);
+    }
   }
   a{
     text-decoration: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid black;
   }
 `

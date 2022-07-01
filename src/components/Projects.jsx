@@ -3,6 +3,7 @@ import { Zoom } from 'react-reveal';
 import styled from 'styled-components';
 import ParticlesBg from 'particles-bg'
 import { Card, CardContent, Typography } from '@mui/material';
+import { style } from '@mui/system';
 
 function Projects(props) {
 
@@ -19,7 +20,7 @@ function Projects(props) {
   return (
     <Wrap>
 
-      {props.type && <Content className='card'>
+      {/* {props.type && <Content className='card'>
         <p className='title'>{props.title}</p>
         <Card>
           <CardContent className='des'>
@@ -40,7 +41,13 @@ function Projects(props) {
             </Typography>
           </CardContent>
         </Card>
-      </Content>}
+      </Content>} */}
+
+      <MyCard>
+        <Img bg = {props.image}></Img>
+        <p className='title'>{props.title}</p>
+        <p className='description'>{props.description}</p>
+      </MyCard>
     </Wrap>
   )
 }
@@ -48,9 +55,6 @@ function Projects(props) {
 export default Projects
 
 const Wrap = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 70px;
   .title{
     font-size: 23px;
@@ -83,12 +87,18 @@ const Wrap = styled.div`
   }
   .title{
     color: lightcyan;
+    display: flex;
+    justify-content: center;
   }
   .des{
     background: var(--gray);
   }
   .typography{
     font-size: 16px;
+  }
+  .description{
+    max-width: 370px;
+    color: white;
   }
 `
 
@@ -97,7 +107,7 @@ const Curve = styled.div`
 `
 
 const Img = styled.div`
-  height: 370px;
+  /* height: 370px;
   width: 600px;
   margin-left: -70px;
   background-size: cover; 
@@ -112,7 +122,15 @@ const Img = styled.div`
     transition: 0.5s;
     opacity: 1;
     cursor: pointer;
-  }
+  } */
+  width: 400px;
+  height: 290px;
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: ${props => `url("/assets/${props.bg}")`};
+  border-radius: 20px;
+  cursor: pointer;
 `
 
 const Content = styled.div`
@@ -122,4 +140,12 @@ const Content = styled.div`
     transform: scale(1.03);
     transition: 0.5s;
   }
+`
+
+const MyCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 `
