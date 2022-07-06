@@ -5,19 +5,18 @@ import LinkedIn from '@mui/icons-material/LinkedIn';
 import Instagram from '@mui/icons-material/Instagram';
 import PlayArrow from '@mui/icons-material/PlayArrow';
 import styled from 'styled-components'
-import { Fade } from 'react-reveal';
 
 function Social() {
 
   return (
     <Container>
       {/* <Fade left> */}
-          <GitHub className='icon' onClick={() => window.open('https://github.com/vasucp1207')}></GitHub>
-          <Twitter className='icon'></Twitter>
-          <Instagram className='icon'></Instagram>
-          <PlayArrow className='icon'></PlayArrow>
-          <LinkedIn className='icon'></LinkedIn>
-        {/* </Fade> */}
+      <GitHub className='icon' onClick={() => window.open('https://github.com/vasucp1207')}></GitHub>
+      <Twitter className='icon' onClick={() => window.open('https://twitter.com/vasucp1207')}></Twitter>
+      <Instagram className='icon'></Instagram>
+      <PlayArrow className='icon'></PlayArrow>
+      <LinkedIn className='icon'></LinkedIn>
+      {/* </Fade> */}
     </Container>
   )
 }

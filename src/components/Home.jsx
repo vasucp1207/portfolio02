@@ -1,80 +1,80 @@
-import Header from './Header';
-import Social from './Social';
 import styled from 'styled-components'
 import Hero from './Hero';
 import AboutMe from './AboutMe';
-import Blogs from './Blogs';
 import Projects from './Projects';
-import { Zoom } from 'react-reveal';
-import ParticlesBg from 'particles-bg'
+import React from 'react';
+import Navbar from './Navbar';
 
 function Home() {
 
+  const [navbarAct, setNav] = React.useState(false)
+
+  function changeNav() {
+    if (window.scrollY >= 160) {
+      setNav(true)
+    }
+    else if (window.screenY < 160) {
+      setNav(false)
+    }
+    if (window.innerWidth <= 800) {
+      setNav(true)
+    }
+  }
+
+  React.useEffect(() => {
+    changeNav()
+    window.addEventListener("scroll", changeNav)
+  })
+  React.useEffect(() => {
+    changeNav()
+    window.addEventListener("resize", changeNav)
+  })
+
   return (
     <Wrap>
-      <Header />
+      <HeaderWrap className={navbarAct ? 'navbarAct' : 'navbar'}>
+        <Navbar />
+      </HeaderWrap>
       <Container>
-        {/* <Left>
-          <Social />
-        </Left> */}
         <Right>
-          <Hero />
+          <Hero className='hero' />
           <AboutMe bgImg='../assets/geomt.jpg' anime='anime.png' />
-          {/* <Bg bg='pencils.jpg'>
-            <h1 className='bg'>Blogs📚</h1>
-            <Bgg>
-              <Blogs classname = 'blogs'
-                  title='Web Development'
-                  backgroundImg='webDev.jpg'
-                  description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla officia asperiores dicta qui quaerat amet culpa placeat, accusamus consequatur nesciunt repudiandae error consectetur earum.'
-                />
-                <Blogs classname = 'blogs'
-                  title='Machine Learning'
-                  backgroundImg='ML.jpg'
-                  description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla officia asperiores dicta qui quaerat amet culpa placeat, accusamus consequatur nesciunt repudiandae error consectetur earum.'
-                />
-                <Blogs classname = 'blogs'
-                  title='Comptetive Programming'
-                  backgroundImg='CP.jpg'
-                  description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla officia asperiores dicta qui quaerat amet culpa placeat, accusamus consequatur nesciunt repudiandae error consectetur earum.'
-                />
-              </Bgg>
-            </Bg> */}
           <Pp>
-          
-          <h1 className='projects'>Projects</h1>
-          
-          <div className='grid'>
-          <Projects
-            type='true'
-            title='Covid-19 Dashboard'
-            description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla officia asperiores dicta qui quaerat amet culpa placeat, accusamus consequatur nesciunt repudiandae error consectetur earum'
-            image='covid.png'
-          />
 
-          <Projects
-            // type='false'
-            title='Tesla Ui'
-            description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla officia asperiores dicta qui quaerat amet culpa placeat, accusamus consequatur nesciunt repudiandae error consectetur earum'
-            image='tesla.png'
-          />
+            <h1 className='projects'>Projects</h1>
 
-          <Projects
-            type='true'
-            title='Disney Clone'
-            description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla officia asperiores dicta qui quaerat amet culpa placeat, accusamus consequatur nesciunt repudiandae error consectetur earum'
-            image='disney.png'
-          />
-          </div>
-          <Curve className='wave'>
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-              <path
-                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                class="shape-fill"
-              ></path>
-            </svg>
-      </Curve>
-      
+            <div className='grid'>
+              <Projects
+                title='Covid-19 Dashboard'
+                description='Real time Covid-19 app using disease.sh api showing no of Cases, Deaths and Recoveries on the world map.'
+                image='covid.png'
+                link='https://github.com/vasucp1207/covid-19-tracker'
+              />
+
+              <Projects
+                title='Disney Clone'
+                description='Disney website clone it using disney api to show the moveis data and details made with ReactJs, Firebase and Material Ui.'
+                image='disney.png'
+                link='https://github.com/vasucp1207/disney-clone'
+              />
+
+              <Projects
+                title='Tesla Ui'
+                description='This website is the replica of offical Tesla website build with ReactJs and Material Ui.'
+                image='tesla.png'
+                link='https://github.com/vasucp1207/tesla-clone'
+              />
+
+            </div>
+            <Curve className='wave'>
+              <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path
+                  d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                  class="shape-fill"
+                ></path>
+              </svg>
+            </Curve>
+
           </Pp>
         </Right>
       </Container>
@@ -86,6 +86,7 @@ function Home() {
 export default Home;
 
 const Wrap = styled.div`
+  position: relative;
   .projects{
     color: white;
     font-size: 60px;
@@ -97,6 +98,19 @@ const Wrap = styled.div`
     display: grid;
     justify-content: center;
     grid-template-columns: auto auto;
+    grid-gap: 100px;
+  }
+  .navbar{
+    align-items: center;
+    z-index: 11;
+  }
+  .navbarAct{
+    align-items: center;
+    z-index: 11;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(93, 93, 93, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.125);
   }
 `
 
@@ -111,34 +125,6 @@ const Left = styled.div`
 
 const Right = styled.div`
   
-`
-
-const Bg = styled.div`
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 70px;
-  .bg{
-    margin-left: calc(100vh / 2 + 80px);
-  }
-  /* background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1); */
-  /* background-image: linear-gradient(to right,rgb(231, 139, 238), rgb(220, 220, 239), rgb(205, 137, 244)); */
-
-  background-size: cover; 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: ${props => `url("/assets/${props.bg}")`};
-  .bg{
-    font-size: 50px;
-    font-weight: 400;
-    color: black;
-  }
-`
-
-const Bgg = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 50px;
 `
 
 const Pp = styled.div`
@@ -174,4 +160,10 @@ const Pp = styled.div`
 
 const Curve = styled.div`
 
+`
+
+const HeaderWrap = styled.div`
+  position: fixed;
+  z-index: 1;
+  width: 100vw;
 `

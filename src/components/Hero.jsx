@@ -1,11 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Button } from '@mui/material'
-import ai from '../assets/ai.png'
-import { Zoom } from 'react-reveal';
 import ParticlesBg from 'particles-bg'
 import Social from './Social';
-import New7 from './New7'
+import New7 from '../3D-Models/New7'
 
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -44,24 +42,19 @@ function Hero() {
           </Info>
 
           <Btn>
-            <Button className='btn' variant="outlined">Get In Touch</Button>
+            <Button className='btn' variant="outlined" onClick={() => window.location = 'mailto:vasucp1207@gmail.com'}>Get In Touch</Button>
           </Btn>
 
         </Container>
-        
-        </Right>
-        {/* <Ai>
-          <img src={ai} />
-        </Ai> */}
-        {/* <div className='voxel'> */}
-          <Canvas camera={{ position: [6, 6, 6] }} clasName="canvas">
-            <OrbitControls />
-            <ambientLight intensity={1} />
-            <directionalLight position={[19, 15, 16]} />
-              <New7 />
-          </Canvas>
-        {/* </div> */}
-        {/* </Zoom> */}
+
+      </Right>
+      <Canvas camera={{ position: [6, 6, 6] }} clasName="canvas">
+        <OrbitControls autoRotate />
+        <ambientLight intensity={1} />
+        <directionalLight position={[19, 15, 16]} />
+        <New7 />
+      </Canvas>
+      {/* </Zoom> */}
     </Wrap>
   )
 }
@@ -72,12 +65,13 @@ const Wrap = styled.div`
   height: 100vh;
   display: flex;
   gap: 800px;
-
+  margin-top: 90px;
   .canvas{
   }
 `
 
 const Container = styled.div`
+z-index: 1;
   padding: 80px;
 
   .btn{
@@ -126,17 +120,6 @@ const Info = styled.div`
 
 const Btn = styled.div`
   
-`
-
-const Ai = styled.div`
-  padding: 70px;
-  margin-right: 60px;
-  img{
-    height: 500px;
-    width: 500px;
-    object-fit: cover;
-    mask-repeat: no-repeat;
-  }
 `
 
 const Left = styled.div`
